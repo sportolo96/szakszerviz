@@ -1,0 +1,21 @@
+{
+  "targets": {
+    "webfejl-2022": {
+      "hosting": {
+        "week-04": [
+          "webfejl-2022"
+        ]
+      }
+    },
+    "webfejl-angular": {
+      "hosting": {
+        "webfejl-angular": [
+          "webfejl-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "webfejl-angular"
+  }
+}

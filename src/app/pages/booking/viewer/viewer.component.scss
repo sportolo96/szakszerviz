@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.galleryImage {
+  width: 25%;
+  height: auto;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+@media only screen and (max-width: 589px) {
+  table {
+    width: 100%;
+    overflow: auto;
+    display: block;
+  }
+}
+
+th.mat-header-cell{
+  text-align: center;
+}
+
+table {
+
+  width: 100%;
+  overflow: auto;
+}
+
+form {
+  width: 100%;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-content {
+  text-align: center;
+}
+
+.user-details{
+  padding: 20px;
+}

@@ -1,0 +1,28 @@
+$nav-text-gray: gray;
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover, a:active {
+    color: lightgray;
+}
+
+.navigation-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+mat-sidenav {
+    width: 250px;
+}
+
+.mat-drawer-container a,
+.mat-toolbar{
+    color: $nav-text-gray;
+}
+
+.mat-primary {
+  background-color: rgba(255, 192, 0, 0.63) !important;
+}

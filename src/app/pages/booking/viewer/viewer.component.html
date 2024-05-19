@@ -1,0 +1,82 @@
+<div class="div-card" *ngIf="employeeInput">
+  <div fxLayout="row wrap">
+    <mat-card fxFlex="100%" fxFlex.md="50%" fxFlex.lg="50%" >
+      <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>Részletes adatok:</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf="loadedEmployee">
+        <p><b>Név:</b> {{loadedEmployee.name}}</p>
+        <p><b>Telefonszám:</b> {{loadedEmployee.phone}}</p>
+      </mat-card-content>
+    </mat-card>
+    <mat-card fxFlex="100%" fxFlex.md="50%" fxFlex.lg="50%">
+      <mat-card-header fxLayoutAlign="center center">
+        <mat-card-title>Foglalt időpontok:</mat-card-title>
+      </mat-card-header>
+      <mat-card-content *ngIf="loadedEmployee">
+        <p *ngIf="!bookings.length">Jelenleg nincs lefoglalt időpont</p>
+        <table *ngIf="bookings.length" mat-table [dataSource]="bookings" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="user_name">
+            <th mat-header-cell *matHeaderCellDef> Szervízes neve</th>
+            <td mat-cell *matCellDef="let element"> {{loadedEmployee.name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Időpont</th>
+            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="customer_name">
+            <th mat-header-cell *matHeaderCellDef> Vendég neve</th>
+            <td mat-cell *matCellDef="let element"> {{element.customer_name}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef><mat-icon>call</mat-icon> </th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
+<div class="div-card" *ngIf="employeeInput">
+  <mat-card>
+    <h3>Időpont foglalás</h3>
+    <form [formGroup]="bookingForm" (ngSubmit)="addBooking()">
+      <div>
+        <mat-form-field>
+          <mat-label for="customer_name">Ügyfél neve:</mat-label>
+          <input matInput type="text" formControlName="customer_name"/>
+        </mat-form-field>
+      </div>
+      <div class="break"></div>
+      <div>
+        <mat-form-field>
+          <mat-label for="phone">Ügyfél telefonszáma:</mat-label>
+          <input matInput type="text" formControlName="phone"/>
+        </mat-form-field>
+      </div>
+      <div class="break"></div>
+      <div>
+        <mat-form-field>
+          <mat-label for="date">Választott dátum: (2022-05-08 20:31)</mat-label>
+          <input matInput placeholder="2022-05-08 20:31"  type="text" formControlName="date"/>
+        </mat-form-field>
+      </div>
+      <div class="break"></div>
+      <div>
+        <button mat-raised-button color="primary" type="submit">Hozzáadás</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+
+
+
+
